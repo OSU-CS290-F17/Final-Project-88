@@ -1,251 +1,13 @@
+<<<<<<< HEAD
 ﻿
 ﻿<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Benny's List</title>
-
-    <!-- This is a 3rd-party stylesheet to make available the font families to be used for this page. -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
-
-    <!-- This is a 3rd-party stylesheet to include Font Awesome icons: http://fontawesome.io/ -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="screen">
-
-    <link rel="stylesheet" href="/style.css">
-
-    <script src="/index.js" charset="utf-8" defer></script>
-  </head>
-  <body>
-
-    <header>
-
-        <div class="header-image-container">
-            <img src="NBA Primary Logo.jpg" width="105" height="240" alt="NBA logo">
-        </div>
-
-        <h1 class="site-title"><a href="/">NBA Hall of Fame</a></h1>
-
-    </header>
-
-    <main class="content">
-        <aside class="filter-container">
-
-            <h2>Filters</h2>
-
-            <div class="filter-input-container">
-                <label for="filter-text" class="filter-input-label">Name</label>
-                <input type="text" name="filter-text" id="filter-text" class="filter-input">
-            </div>
-
-            <div class="filter-input-container">
-                <label for="filter-min-price" class="filter-input-label">Height(cm)</label>
-                <input type="number" name="filter-min-price" id="filter-min-price" class="filter-input" placeholder="min">
-                <input type="number" name="filter-max-price" id="filter-max-price" class="filter-input" placeholder="max">
-            </div>
-
-            <div class="filter-input-container">
-                <label for="filter-city">Positions</label>
-                <select id="filter-city" class="filter-input" name="filter-city">
-                    <option selected value="">Any</option>
-                    <option>Shooting guard</option>
-                    <option>Point guard</option>
-                    <option>Center</option>
-                    <option>Power forward</option>
-                    <option>Small forward</option>
-                </select>
-            </div>
-
-            <div class="filter-input-container">
-                <fieldset id="filter-condition" class="filter-fieldset">
-                    <legend>Location</legend>
-                    <div>
-                        <input type="checkbox" name="filter-condition" id="filter-condition-new" value="East">
-                        <label for="filter-condition-new">East</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="filter-condition" id="filter-condition-excellent" value="West">
-                        <label for="filter-condition-excellent">West</label>
-                    </div>
-
-                </fieldset>
-            </div>
-
-            <button id="filter-update-button" class="action-button">Update</button>
-
-        </aside>
-
-      <section id="posts">
-
-        <div class="post" data-price="500" data-city="Eugene" data-condition="poor">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Super nice laptop</a> <span class="post-price">$500</span> <span class="post-city">(Eugene)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post" data-price="20" data-city="Corvallis" data-condition="excellent">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="http://www.bendbulletin.com/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=nT08h69xtGPI_1rYp2vMZ8$daE2N3K4ZzOUsqbU5sYvcgrKwveORUjiMjWvNLIHiWCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg" alt="Platypus Trophy">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Platypus Trophy</a> <span class="post-price">$20</span> <span class="post-city">(Corvallis)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post" data-price="100" data-city="Portland" data-condition="new">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="http://static-21.sinclairstoryline.com/resources/media/9e359e52-2d79-4aa6-a43b-2ba534b9db0c-large16x9_378b19aa394049a4a9ca7101e4e75be4voodoodoughnutrecord660.jpg?1463527394583" alt="Very large pile of interesting donuts">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Very large pile of interesting donuts</a> <span class="post-price">$100</span> <span class="post-city">(Portland)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post" data-price="250" data-city="Salem" data-condition="fair">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="http://static.legalsolutions.thomsonreuters.com/product_photos/p40307624-141728L.jpg" alt="Oregon laws">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Oregon laws</a> <span class="post-price">$250</span> <span class="post-city">(Salem)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post" data-price="1" data-city="Bend" data-condition="new">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="http://i.huffpost.com/gen/1573833/images/o-SUNSHINE-facebook.jpg" alt="Sunshine">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Sunshine</a> <span class="post-price">$1</span> <span class="post-city">(Bend)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post" data-price="99" data-city="Portland" data-condition="fair">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="https://az616578.vo.msecnd.net/files/2016/05/21/6359939006070313161632155840_hipsters.jpg" alt="Hipsters">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Hipsters</a> <span class="post-price">$99</span> <span class="post-city">(Portland)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post" data-price="20000000" data-city="Eugene" data-condition="good">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/102707-Oregon-AutzenStadium-ext.jpg/1200px-102707-Oregon-AutzenStadium-ext.jpg" alt="Football stadium (we kind of want to build a new one)">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Football stadium (we kind of want to build a new one)</a> <span class="post-price">$20000000</span> <span class="post-city">(Eugene)</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="post" data-price="10000" data-city="Corvallis" data-condition="excellent">
-          <div class="post-contents">
-            <div class="post-image-container">
-              <img src="https://farm2.staticflickr.com/1258/1366422925_25663f44c8_z.jpg" alt="Very nice farmer's market">
-            </div>
-            <div class="post-info-container">
-              <a href="#" class="post-title">Very nice farmer's market</a> <span class="post-price">$10000</span> <span class="post-city">(Corvallis)</span>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-    </main>
-
-    <button type="button" id="sell-something-button"><i class="fa fa-plus"></i></button>
-
-    <div id="modal-backdrop" class="hidden"></div>
-    <div id="sell-something-modal" class="hidden">
-      <div class="modal-dialog">
-
-        <div class="modal-header">
-          <h3>Sell something on Benny's List</h3>
-          <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
-        </div>
-
-        <div class="modal-body">
-
-          <div class="post-input-element">
-            <label for="post-text-input">Item description</label>
-            <input type="text" id="post-text-input"></input>
-          </div>
-
-          <div class="post-input-element">
-            <label for="post-photo-input">Photo URL</label>
-            <input type="text" id="post-photo-input">
-          </div>
-
-          <div class="post-input-element">
-            <label for="post-price-input">Selling price ($)</label>
-            <input type="number" id="post-price-input">
-          </div>
-
-          <div class="post-input-element">
-            <label for="post-city-input">City</label>
-            <input type="text" id="post-city-input">
-          </div>
-
-          <div class="post-input-element">
-            <fieldset id="post-condition-fieldset" class="post-fieldset">
-              <legend>Condition</legend>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-new" value="new" checked>
-                <label for="post-condition-new">New</label>
-              </div>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-excellent" value="excellent">
-                <label for="post-condition-excellent">Excellent</label>
-              </div>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-good" value="good">
-                <label for="post-condition-good">Good</label>
-              </div>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-fair" value="fair">
-                <label for="post-condition-fair">Fair</label>
-              </div>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-poor" value="poor">
-                <label for="post-condition-poor">Poor</label>
-              </div>
-            </fieldset>
-          </div>
-
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
-          <button type="button" id="modal-accept" class="action-button">Create Post</button>
-        </div>
-
-      </div>
-    </div>
-
-  </body>
-
-</html>
 =======
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+>>>>>>> c110afad07a1b4f92ea5934da3b8d905d1df16ee
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Benny's List</title>
+    <title>Our Website</title>
 
     <!-- This is a 3rd-party stylesheet to make available the font families to be used for this page. -->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
@@ -280,33 +42,33 @@
             </div>
 
             <div class="filter-input-container">
-                <label for="filter-min-price" class="filter-input-label">Height(cm)</label>
-                <input type="number" name="filter-min-price" id="filter-min-price" class="filter-input" placeholder="min">
-                <input type="number" name="filter-max-price" id="filter-max-price" class="filter-input" placeholder="max">
+                <label for="filter-min-height" class="filter-input-label">Height(cm)</label>
+                <input type="number" name="filter-min-height" id="filter-min-height" class="filter-input" placeholder="min">
+                <input type="number" name="filter-max-height" id="filter-max-height" class="filter-input" placeholder="max">
             </div>
 
             <div class="filter-input-container">
-                <label for="filter-city">Positions</label>
-                <select id="filter-city" class="filter-input" name="filter-city">
+                <label for="filter-positions">Positions</label>
+                <select id="filter-position" class="filter-input" name="filter-position">
                     <option selected value="">Any</option>
-                    <option>Shooting guard</option>
-                    <option>Point guard</option>
+                    <option>Shooting Guard</option>
+                    <option>Point Guard</option>
                     <option>Center</option>
-                    <option>Power forward</option>
-                    <option>Small forward</option>
+                    <option>Power Forward</option>
+                    <option>Small Forward</option>
                 </select>
             </div>
 
             <div class="filter-input-container">
-                <fieldset id="filter-condition" class="filter-fieldset">
+                <fieldset id="filter-location" class="filter-fieldset">
                     <legend>Location</legend>
                     <div>
-                        <input type="checkbox" name="filter-condition" id="filter-condition-new" value="East">
-                        <label for="filter-condition-new">East</label>
+                        <input type="checkbox" name="filter-location" id="filter-location-east" value="East">
+                        <label for="filter-location-east">East</label>
                     </div>
                     <div>
-                        <input type="checkbox" name="filter-condition" id="filter-condition-excellent" value="West">
-                        <label for="filter-condition-excellent">West</label>
+                        <input type="checkbox" name="filter-condition" id="filter-location-west" value="West">
+                        <label for="filter-location-west">West</label>
                     </div>
 
                 </fieldset>
@@ -318,90 +80,90 @@
 
       <section id="posts">
 
-        <div class="post" data-price="500" data-city="Eugene" data-condition="poor">
+        <div class="post" data-height="198" data-position="Shooting Guard" data-location="East">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="https://cnet4.cbsistatic.com/img/xTXdUEQEBqoDx74pbwCcpUc1XFQ=/fit-in/370x0/2017/01/18/c68ae3ac-6795-4d38-91e9-ec3e4fbffd6c/9401078c315052fc72a74b.jpg" alt="Super nice laptop">
+              <img src="https://naqyr37xcg93tizq734pqsx1-wpengine.netdna-ssl.com/wp-content/uploads/2016/01/75-Motivational-Michael-Jordan-Quotes.jpg" alt="Michael Jordan">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Super nice laptop</a> <span class="post-price">$500</span> <span class="post-city">(Eugene)</span>
+              <a href="#" class="post-title">Michael Jordan</a> <span class="post-height">198</span> <span class="post-position">(Shooting Guard)</span>
             </div>
           </div>
         </div>
 
-        <div class="post" data-price="20" data-city="Corvallis" data-condition="excellent">
+        <div class="post" data-height="198" data-position="Shooting Guard" data-location="West">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="http://www.bendbulletin.com/csp/mediapool/sites/dt.common.streams.StreamServer.cls?STREAMOID=nT08h69xtGPI_1rYp2vMZ8$daE2N3K4ZzOUsqbU5sYvcgrKwveORUjiMjWvNLIHiWCsjLu883Ygn4B49Lvm9bPe2QeMKQdVeZmXF$9l$4uCZ8QDXhaHEp3rvzXRJFdy0KqPHLoMevcTLo3h8xh70Y6N_U_CryOsw6FTOdKL_jpQ-&CONTENTTYPE=image/jpeg" alt="Platypus Trophy">
+              <img src="https://i.pinimg.com/736x/24/08/8e/24088e567e565b13fd3aadca72becd23--kobe-bryant-wallpapers-kone-bryant.jpg" alt="Kobe Byrant">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Platypus Trophy</a> <span class="post-price">$20</span> <span class="post-city">(Corvallis)</span>
+              <a href="#" class="post-title">Kobe Byrant</a> <span class="post-height">198</span> <span class="post-position">(Shooting Guard)</span>
             </div>
           </div>
         </div>
 
-        <div class="post" data-price="100" data-city="Portland" data-condition="new">
+        <div class="post" data-height="203" data-position="Small Forward" data-location="East">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="http://static-21.sinclairstoryline.com/resources/media/9e359e52-2d79-4aa6-a43b-2ba534b9db0c-large16x9_378b19aa394049a4a9ca7101e4e75be4voodoodoughnutrecord660.jpg?1463527394583" alt="Very large pile of interesting donuts">
+              <img src="http://www4.pictures.zimbio.com/gi/Miami+Heat+v+Sacramento+Kings+zNUKj4zxybsx.jpg" alt="Lebron James">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Very large pile of interesting donuts</a> <span class="post-price">$100</span> <span class="post-city">(Portland)</span>
+              <a href="#" class="post-title">Lebron James</a> <span class="post-height">203</span> <span class="post-position">(Small Forward)</span>
             </div>
           </div>
         </div>
 
-        <div class="post" data-price="250" data-city="Salem" data-condition="fair">
+        <div class="post" data-height="229" data-position="Center" data-location="West">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="http://static.legalsolutions.thomsonreuters.com/product_photos/p40307624-141728L.jpg" alt="Oregon laws">
+              <img src="http://2.bp.blogspot.com/_5v_HUkQXVb0/S8M1zYgHKcI/AAAAAAAAAAM/cfCMF9HDzCs/s1600/yao3_627_080123.jpg" alt="Ming Yao">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Oregon laws</a> <span class="post-price">$250</span> <span class="post-city">(Salem)</span>
+              <a href="#" class="post-title">Ming Yao</a> <span class="post-height">229</span> <span class="post-position">(Center)</span>
             </div>
           </div>
         </div>
 
-        <div class="post" data-price="1" data-city="Bend" data-condition="new">
+        <div class="post" data-height="203" data-position="Shooting Guard" data-location="West">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="http://i.huffpost.com/gen/1573833/images/o-SUNSHINE-facebook.jpg" alt="Sunshine">
+              <img src="https://static.wixstatic.com/media/004635_b5e1bdae974a4d6ab373c185efff9ae0~mv2_d_2700_1800_s_2.png/v1/fill/w_974,h_660,al_c,usm_0.66_1.00_0.01/004635_b5e1bdae974a4d6ab373c185efff9ae0~mv2_d_2700_1800_s_2.png" alt="Tracy Mcgrady">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Sunshine</a> <span class="post-price">$1</span> <span class="post-city">(Bend)</span>
+              <a href="#" class="post-title">Tracy McGrady</a> <span class="post-height">203</span> <span class="post-position">(Shooting Guard)</span>
             </div>
           </div>
         </div>
 
-        <div class="post" data-price="99" data-city="Portland" data-condition="fair">
+        <div class="post" data-height="211" data-position="Power Forward" data-location="West">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="https://az616578.vo.msecnd.net/files/2016/05/21/6359939006070313161632155840_hipsters.jpg" alt="Hipsters">
+              <img src="http://img.bleacherreport.net/img/images/photos/002/950/936/hi-res-c7212b09d107dd6a1d58cabf5911e62e_crop_north.jpg?1403647226&w=630&h=420" alt="Tim Duncan">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Hipsters</a> <span class="post-price">$99</span> <span class="post-city">(Portland)</span>
+              <a href="#" class="post-title">Tim Duncan</a> <span class="post-height">211</span> <span class="post-position">(Power Forward)</span>
             </div>
           </div>
         </div>
 
-        <div class="post" data-price="20000000" data-city="Eugene" data-condition="good">
+        <div class="post" data-height="183" data-position="Point Guard" data-location="East">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/102707-Oregon-AutzenStadium-ext.jpg/1200px-102707-Oregon-AutzenStadium-ext.jpg" alt="Football stadium (we kind of want to build a new one)">
+              <img src="https://usathoopshype.files.wordpress.com/2016/03/allen-iverson-sixs.jpg" alt="Allen Iverson">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Football stadium (we kind of want to build a new one)</a> <span class="post-price">$20000000</span> <span class="post-city">(Eugene)</span>
+              <a href="#" class="post-title">Allen Iverson</a> <span class="post-height">183</span> <span class="post-position">(Point Guard)</span>
             </div>
           </div>
         </div>
 
-        <div class="post" data-price="10000" data-city="Corvallis" data-condition="excellent">
+        <div class="post" data-height="193" data-position="Shooting Guard" data-location="East">
           <div class="post-contents">
             <div class="post-image-container">
-              <img src="https://farm2.staticflickr.com/1258/1366422925_25663f44c8_z.jpg" alt="Very nice farmer's market">
+              <img src="http://www.hoophounds.com/wp-content/uploads/2016/08/athleticism-1.jpg" alt="Dwyane Wade">
             </div>
             <div class="post-info-container">
-              <a href="#" class="post-title">Very nice farmer's market</a> <span class="post-price">$10000</span> <span class="post-city">(Corvallis)</span>
+              <a href="#" class="post-title">Dwyane Wade</a> <span class="post-height">193</span> <span class="post-position">(Shooting Guard)</span>
             </div>
           </div>
         </div>
@@ -410,21 +172,21 @@
 
     </main>
 
-    <button type="button" id="sell-something-button"><i class="fa fa-plus"></i></button>
+    <button type="button" id="add-star-button"><i class="fa fa-plus"></i></button>
 
     <div id="modal-backdrop" class="hidden"></div>
-    <div id="sell-something-modal" class="hidden">
+    <div id="add-star-modal" class="hidden">
       <div class="modal-dialog">
 
         <div class="modal-header">
-          <h3>Sell something on Benny's List</h3>
+          <h3>Add a NBA star on our website</h3>
           <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
         </div>
 
         <div class="modal-body">
 
           <div class="post-input-element">
-            <label for="post-text-input">Item description</label>
+            <label for="post-text-input">Name</label>
             <input type="text" id="post-text-input"></input>
           </div>
 
@@ -434,37 +196,25 @@
           </div>
 
           <div class="post-input-element">
-            <label for="post-price-input">Selling price ($)</label>
-            <input type="number" id="post-price-input">
+            <label for="post-height-input">Height</label>
+            <input type="number" id="post-height-input">
           </div>
 
           <div class="post-input-element">
-            <label for="post-city-input">City</label>
-            <input type="text" id="post-city-input">
+            <label for="post-position-input">Position</label>
+            <input type="text" id="post-position-input">
           </div>
 
           <div class="post-input-element">
-            <fieldset id="post-condition-fieldset" class="post-fieldset">
-              <legend>Condition</legend>
+            <fieldset id="post-location-fieldset" class="post-fieldset">
+              <legend>Team's Location</legend>
               <div>
-                <input type="radio" name="post-condition" id="post-condition-new" value="new" checked>
-                <label for="post-condition-new">New</label>
+                <input type="radio" name="player-location" id="player-location-east" value="east" checked>
+                <label for="post-condition-east">East</label>
               </div>
               <div>
-                <input type="radio" name="post-condition" id="post-condition-excellent" value="excellent">
-                <label for="post-condition-excellent">Excellent</label>
-              </div>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-good" value="good">
-                <label for="post-condition-good">Good</label>
-              </div>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-fair" value="fair">
-                <label for="post-condition-fair">Fair</label>
-              </div>
-              <div>
-                <input type="radio" name="post-condition" id="post-condition-poor" value="poor">
-                <label for="post-condition-poor">Poor</label>
+                <input type="radio" name="player-location" id="player-location-west" value="west">
+                <label for="post-condition-west">West</label>
               </div>
             </fieldset>
           </div>
@@ -482,4 +232,7 @@
   </body>
 
 </html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> c110afad07a1b4f92ea5934da3b8d905d1df16ee
