@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Person</title>
+    <title>{{name}}</title>
 
     <!-- This is a 3rd-party stylesheet to make available the font families to be used for this page. -->
     <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab:100" rel="stylesheet">
@@ -17,19 +17,20 @@
 
 
 <body>
-    <header>
+    {{> personpageHeader}}
+    <!--<header>
 
         <div class="header-image-container">
             <img src="NBA Primary Logo.jpg" width="150" ; height="240" ; style="position:absolute; width:10.4vw; top:0px; ">
             <img src="curry.jpg" width="1275" ; height="240" ; style="position:absolute; width:88vw; left:10.4vw; top:0px; ">
-        </div>
+        </div>-->
 
 
         <!--<div style="position:absolute;width:800px;height:100px;left:170px;top:100px;font-size:6vw;left:11vw;color:#f67811;">
             <em>NBA Hall of Fame</em>
         </div>-->
 
-    </header>
+    <!--</header>-->
     <!--<header>-->
 
     <!--<div class="header-image-container">
@@ -40,27 +41,27 @@
 
 <!--</header>-->
     <div class="player-name">
-        <a href="https://en.wikipedia.org/wiki/Yao_Ming">
-            <em><strong>——Yao Ming——</strong></em>
+        <a href="{{wikiURL}}">
+            <em><strong>——{{name}}——</strong></em>
         </a>
     </div>
 
     <!--<p3 style="background-color:orange">Shooting guard<br /></p3>-->
 
     <div class="player-photo">
-        <a href="https://en.wikipedia.org/wiki/Yao_Ming">
-            <img border="0" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/YaoMingonoffense2.jpg/800px-YaoMingonoffense2.jpg" width="600" height="900" alt="Yao Ming." />
-        </a>
+        <!--<a href="{{wikiURL}}">-->
+            <img border="0" src="{{photoURL}}" width="600" height="900" alt="Yao Ming." />
+        <!--</a>-->
     </div>
 
 
     <div class="player-info">
         <ul>
-            <li>Born: <strong>{{Born}}</strong></li>
-            <li>Height: <strong>{{Height}}</strong></li>
-            <li>NBA daft: <strong>{{NBAdaft}}</strong></li>
-            <li>Playing career: <strong>{{Career}}</strong></li>
-            <li>Number: <strong>{{Number}}</strong></li>
+            <li>Born: <strong>{{born}}</strong></li>
+            <li>Height: <strong>{{height}}</strong></li>
+            <li>NBA daft: <strong>{{team}}</strong></li>
+            <li>Playing career: <strong>{{career}}</strong></li>
+            <li>Number: <strong>{{number}}</strong></li>
             <li><a href="{{videoURL}}">Highlights!</a></li>
 
         </ul>
