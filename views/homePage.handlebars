@@ -1,0 +1,14 @@
+{{> header}}
+<main class="content">
+    {{#unless hideFilter}}
+    {{> showFilter}}
+    {{/unless}}
+    <section id="posts">
+        {{#each height}}
+        {{> newPost}}
+        {{/each}}
+    </section>
+</main>
+{{#unless hideButton}}
+{{> showButton}}
+{{/unless}}
