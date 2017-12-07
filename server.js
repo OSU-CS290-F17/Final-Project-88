@@ -75,10 +75,10 @@ app.get('/', function (req, res) {
 
 app.use(express.static('public'));
 
-// app.get('*', function (req, res) {
-//   res.status(404).render('404');
-//   console.log(" == 404 is working");
-// });
+ app.get('*', function (req, res) {
+   res.status(404).render('404Page');
+   console.log(" == 404 is working");
+ });
 
 
 app.listen(port, function () {
