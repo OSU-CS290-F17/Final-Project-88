@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Times New Roman", Times, serif;
   margin: 0;
   background-color: black;
 }
@@ -19,12 +19,6 @@ a:hover {
   text-decoration: underline;
 }
 
-header {
-  background-image: url("curry.jpg");
-  background-repeat: no-repeat;
-  background-size:1275px 240px;
-  background-position: top right;
-}
 
 header a {
   color: #fff;
@@ -47,17 +41,14 @@ header a {
 }
 
 .filter-container {
-  min-width: 225px;
-  max-width: 225px;
-  margin: 10px 10px auto 10px;
-  padding: 20px;
-  border-radius: 3px;
+  height: 80px;
+  width: 100%;
   background-color: #f67811;
+  display: flex;
+  position: fixed;
+  z-index: 19999;
 }
 
-.filter-container h2 {
-  margin: 0;
-}
 
 .filter-input-container {
   width: 100%;
@@ -67,11 +58,16 @@ header a {
   align-items: center;
 }
 
+.filter-input-label{
+  margin-left: 5px;
+}
+
 .filter-input {
   font-size: 14px;
   flex: 1 auto;
   width: 33%;
-  margin-left: 10px;
+  margin-left: 5px;
+  margin-right: 10px;
   padding: 3px;
   border: 1px solid #dadada;
   border-radius: 3px;
@@ -79,7 +75,11 @@ header a {
 
 .filter-fieldset {
   flex: 1 100%;
-  border: 1px solid #ababab;
+  border: 1px solid #000000;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .action-button {
@@ -91,16 +91,24 @@ header a {
   border-radius: 5px;
   font-weight: lighter;
   cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .action-button:hover {
-  background-color: #f9d2b2;
+  background-color: #8abaea;
   border-color: #333;
   color: #333;
 }
 
 #filter-update-button {
   width: 100%;
+}
+
+#posts {
+  position: relative;
+  top:1245px;
+  left:0px;
 }
 
 .post {
@@ -110,7 +118,7 @@ header a {
   width: 300px;
   margin: 10px;
   padding: 10px;
-  border: 1px solid #dadada;
+  border: 1px solid #f67811;
   border-radius: 3px;
 }
 
@@ -142,7 +150,7 @@ header a {
   background: #efefef;
 }
 
-#sell-something-button {
+#add-star-button {
   position: fixed;
   right: 30px;
   bottom: 30px;
@@ -157,8 +165,8 @@ header a {
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-#sell-something-button:hover,
-#sell-something-button:focus {
+#add-star-button:hover,
+#add-star-button:focus {
   right: 27px;
   bottom: 27px;
   height: 66px;
@@ -167,7 +175,7 @@ header a {
   font-size: 40px;
 }
 
-#sell-something-button:focus {
+#add-star-button:focus {
   outline: none;
 }
 
@@ -181,17 +189,17 @@ header a {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 100000;
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-#sell-something-modal {
+#add-star-modal {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1010;
+  z-index: 101000;
   overflow: scroll;
 }
 
@@ -205,7 +213,7 @@ header a {
   min-width: 350px;
   min-height: 300px;
   margin: 40px auto;
-  background-color: #fff;
+  background-color: #f67811;;
   border-radius: 15px;
 }
 

@@ -15,71 +15,70 @@
     <script src="index.js" charset="utf-8" defer></script>
   </head>
   <body>
+    <aside class="filter-container">
+
+        <!-- <h2>Filters</h2> -->
+
+        <div class="filter-input-container">
+            <label for="filter-text" class="filter-input-label">Name</label>
+            <input type="text" name="filter-text" id="filter-text" class="filter-input">
+
+
+
+            <label for="filter-min-height" class="filter-input-label">Height(cm)</label>
+            <input type="number" name="filter-min-height" id="filter-min-height" class="filter-input" placeholder="min">
+            <input type="number" name="filter-max-height" id="filter-max-height" class="filter-input" placeholder="max">
+
+
+            <label for="filter-positions">Positions</label>
+            <select id="filter-position" class="filter-input" name="filter-position">
+                <option selected value="">Any</option>
+                <option>Shooting Guard</option>
+                <option>Point Guard</option>
+                <option>Center</option>
+                <option>Power Forward</option>
+                <option>Small Forward</option>
+            </select>
+
+
+            <fieldset id="filter-location" class="filter-fieldset">
+                <legend>Location</legend>
+                <div>
+                    <input type="checkbox" name="filter-location" id="filter-location-east" value="East">
+                    <label for="filter-location-east">East</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="filter-condition" id="filter-location-west" value="West">
+                    <label for="filter-location-west">West</label>
+                </div>
+
+            </fieldset>
+
+
+        <button id="filter-search-button" class="action-button">Search</button>
+
+    </aside>
+
+    <div class="top-part-container">
+        <img src="LBJ.jpeg" width="1425"; height="715"; style="position:absolute; width:98.5vw; top:80px; ">
+    </div>
 
     <header>
 
         <div class="header-image-container">
-            <img src="NBA Primary Logo.jpg" width="150" height="240" alt="NBA logo">
-            <!-- <img src="curry.jpg" width="1275" height="240" alt="curry background"> -->
+            <img src="NBA Primary Logo.jpg" width="150"; height="240"; style="position:absolute; width:10.4vw; top:900px; ">
+            <img src="curry.jpg" width="1275"; height="240"; style="position:absolute; width:88vw; left:10.4vw; top:900px; ">
         </div>
 
-        <!-- <div style="background:url(curry.jpg) no-repeat right top 1275px 240px;">
-        </div> -->
 
-        <div style="position:absolute;width:800px;height:100px;left:170px;top:120px;font-size:85px;color:#f67811;">
+        <div style="position:absolute;width:800px;height:100px;left:170px;top:1000px;font-size:6vw;left:11vw;color:#f67811;">
             <em>NBA Hall of Fame</em>
         </div>
-
-        <!-- <h1 class="site-title"><strong><a href="/">NBA Hall of Fame</a></strong></h1> -->
 
     </header>
 
     <main class="content">
-        <aside class="filter-container">
 
-            <h2>Filters</h2>
-
-            <div class="filter-input-container">
-                <label for="filter-text" class="filter-input-label">Name</label>
-                <input type="text" name="filter-text" id="filter-text" class="filter-input">
-            </div>
-
-            <div class="filter-input-container">
-                <label for="filter-min-height" class="filter-input-label">Height(cm)</label>
-                <input type="number" name="filter-min-height" id="filter-min-height" class="filter-input" placeholder="min">
-                <input type="number" name="filter-max-height" id="filter-max-height" class="filter-input" placeholder="max">
-            </div>
-
-            <div class="filter-input-container">
-                <label for="filter-positions">Positions</label>
-                <select id="filter-position" class="filter-input" name="filter-position">
-                    <option selected value="">Any</option>
-                    <option>Shooting Guard</option>
-                    <option>Point Guard</option>
-                    <option>Center</option>
-                    <option>Power Forward</option>
-                    <option>Small Forward</option>
-                </select>
-            </div>
-
-            <div class="filter-input-container">
-                <fieldset id="filter-location" class="filter-fieldset">
-                    <legend>Location</legend>
-                    <div>
-                        <input type="checkbox" name="filter-location" id="filter-location-east" value="East">
-                        <label for="filter-location-east">East</label>
-                    </div>
-                    <div>
-                        <input type="checkbox" name="filter-condition" id="filter-location-west" value="West">
-                        <label for="filter-location-west">West</label>
-                    </div>
-
-                </fieldset>
-            </div>
-
-            <button id="filter-update-button" class="action-button">Update</button>
-
-        </aside>
 
       <section id="posts">
 
