@@ -1,0 +1,43 @@
+<aside class="filter-container">
+
+    <!-- <h2>Filters</h2> -->
+
+    <div class="filter-input-container">
+        <label for="filter-text" class="filter-input-label">Name</label>
+        <input type="text" name="filter-text" id="filter-text" class="filter-input">
+
+
+
+        <label for="filter-min-height" class="filter-input-label">Height(cm)</label>
+        <input type="number" name="filter-min-height" id="filter-min-height" class="filter-input" placeholder="min">
+        <input type="number" name="filter-max-height" id="filter-max-height" class="filter-input" placeholder="max">
+
+
+        <label for="filter-positions">Positions</label>
+        <select id="filter-position" class="filter-input" name="filter-position">
+            <option selected value="">Any</option>
+            <option>Shooting Guard</option>
+            <option>Point Guard</option>
+            <option>Center</option>
+            <option>Power Forward</option>
+            <option>Small Forward</option>
+        </select>
+
+
+        <fieldset id="filter-location" class="filter-fieldset">
+            <legend>Location</legend>
+            <div>
+                <input type="checkbox" name="filter-location" id="filter-location-east" value="East">
+                <label for="filter-location-east">East</label>
+            </div>
+            <div>
+                <input type="checkbox" name="filter-condition" id="filter-location-west" value="West">
+                <label for="filter-location-west">West</label>
+            </div>
+
+        </fieldset>
+
+
+        <button id="filter-search-button" class="action-button">Search</button>
+
+</aside>

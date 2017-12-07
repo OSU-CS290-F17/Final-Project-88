@@ -1,8 +1,13 @@
-{{> header}}
+{{> homepageHeader}}
 <main class="content">
     {{#unless hideFilter}}
     {{> showFilter}}
     {{/unless}}
+
+    {{#unless hidePicture}}
+    {{> showPicture}}
+    {{/unless}}
+
     <section id="posts">
         {{#each height}}
         {{> newPost}}

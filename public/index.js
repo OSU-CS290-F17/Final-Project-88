@@ -1,9 +1,119 @@
-/*
- * Write your JS code in this file.
- */
-
-var allPostElems = [];
+var allPosts = [];
 var allPositions = [];
+
+ // * <div class="post" data-price="<PRICE>" data-city="<CITY>" data-condition="<CONDITION>">
+ // *   <div class="post-contents">
+ // *     <div class="post-image-container">
+ // *       <img src="<PHOTO_URL>" alt="<ITEM_DESCRIPTION>">
+ // *     </div>
+ // *     <div class="post-info-container">
+ // *       <a href="#" class="post-title"><ITEM_DESCRIPTION></a> <span class="post-price">$<PRICE></span> <span class="post-city">(<CITY>)</span>
+ // *     </div>
+ // *   </div>
+ // * </div>
+ // */
+function insertNewPost(description, photoURL, height, position, location) {
+
+  var newPostTemplateArgs = {
+    description: description,
+    photoURL: photoURL,
+    height: height,
+    position: position,
+    location: location
+  }
+
+  var newPostHTML = Handlebars.templates.newPost(newPostTemplateArgs);
+  console.log("== newPostHTML:", newPostHTML);
+
+  var postsSection = document.getElementById('posts');
+  postsSection.insertAdjacentHTML("beforeEnd", newPostHTML);
+}
+
+/***************************************************************************
+ **
+ ** You should not modify any of the functions below.
+ **
+ ***************************************************************************/
+
+
+/*
+ * This function checks whether all of the required inputs were supplied by
+ * the user and, if so,i nserting a new post into the page constructed using
+ * these inputs.  If the user did not supply a required input, they instead
+ * recieve an alert, and no new post is inserted.
+ */
+function handleModalAcceptClick() {
+
+  var description = document.getElementById('post-text-input').value.trim();
+  var photoURL = document.getElementById('post-photo-input').value.trim();
+  var height = document.getElementById('post-height-input').value.trim();
+  var position = document.getElementById('post-position-input').value.trim();
+  var location = document.querySelector('#post-location-fieldset input:checked').value;
+
+  if (!description || !photoURL || !height || !position || !location) {
+    alert("You must fill in all of the fields!");
+  } else {
+
+    allPosts.push({
+      description: description,
+      photoURL: photoURL,
+      height: height,
+      position: position,
+      location: location
+    });
+
+    clearFiltersAndReinsertPosts();
+
+    addPositionToAllPositions(position);
+
+    hideAddStarModal();
+
+  }
+
+}
+
+
+/*
+ * This function clears all filter values, causing all posts to be re-inserted
+ * into the DOM.
+ */
+function clearFiltersAndReinsertPosts() {
+
+  document.getElementById('filter-text').value = "";
+  document.getElementById('filter-min-height').value = "";
+  document.getElementById('filter-max-height').value = "";
+  document.getElementById('filter-position').value = "";
+
+  var filterLocationCheckedInputs = document.querySelectorAll("#filter-location input");
+  for (var i = 0; i < filterLocationCheckedInputs.length; i++) {
+    filterLocationCheckedInputs[i].checked = false;
+  }
+
+  doFilterSearch();
+
+}
+
+
+/*
+ * This function checks to see if a city is included in the collection of all
+ * cities for which we have a post.  If it's not, the new city is added to the
+ * collection.
+ */
+function addPositionToAllPositions(position) {
+
+  /*
+   * If city doesn't already exist in the list of cities by which we can
+   * filter, add it.
+   */
+  if (allPositions.indexOf(position.toLowerCase()) === -1) {
+    allPositions.push(position.toLowerCase());
+    var newPositionOption = createPositionOption(position);
+    var filterPositionSelect = document.getElementById('filter-position');
+    filterPositionSelect.appendChild(newPositionOption);
+  }
+
+}
+
 
 /*
  * This function shows the "sell something" modal by removing the "hidden"
@@ -11,10 +121,10 @@ var allPositions = [];
  */
 function showAddStarModal() {
 
-  var addStarModal = document.getElementById('add-star-modal');
+  var showAddStarModal = document.getElementById('add-star-modal');
   var modalBackdrop = document.getElementById('modal-backdrop');
 
-  addStarModal.classList.remove('hidden');
+  showAddStarModal.classList.remove('hidden');
   modalBackdrop.classList.remove('hidden');
 
 }
@@ -67,41 +177,6 @@ function hideAddStarModal() {
 
 
 /*
- * This function generates a new HTML element representing a complete post,
- * given the specified information about the item to be sold.  The new post
- * element has the following structure:
- *
- * <div class="post" data-price="{{price}}" data-city="{{city}}" data-condition="{{condition}}">
- *   <div class="post-contents">
- *     <div class="post-image-container">
- *       <img src="{{photoURL}}" alt="{{itemText}}">
- *     </div>
- *     <div class="post-info-container">
- *       <a href="#" class="post-title">{{itemText}}</a> <span class="post-price">${{price}}</span> <span class="post-city">({{city}})</span>
- *     </div>
- *   </div>
- * </div>
- */
-function insertPostElement(name, photoURL, height, position, location) {
-
-  var newPostTemplateArgs = {
-    description: description,
-    photoURL: photoURL,
-    height: height,
-    position: position,
-    location: location
-  }
-
-  var newPostHTML = Handlebars.templates.newPost(newPostTemplateArgs);
-  console.log("== newPostHTML:", newPostHTML);
-
-  var postsSection = document.getElementById('posts');
-  postsSection.insertAdjacentHTML("beforeEnd", newPostHTML);
-
-}
-
-
-/*
  * This function creates a new <option> element containing a given city name.
  */
 function createPositionOption(position) {
@@ -112,89 +187,41 @@ function createPositionOption(position) {
 
 
 /*
- * This function handles a click on the modal's "accept" button by checking
- * whether all of the required inputs were supplied by the user and, if so,
- * inserting a new post into the page constructed using this inputs.  If the
- * user did not supply a required input, they instead recieve an alert, and
- * no new post is inserted.
- */
-function handleModalAcceptClick() {
-
-  var name = document.getElementById('post-text-input').value.trim();
-  var photoURL = document.getElementById('post-photo-input').value.trim();
-  var height = document.getElementById('post-height-input').value.trim();
-  var position = document.getElementById('post-position-input').value.trim();
-  var location = document.querySelector('#post-location-fieldset input:checked').value;
-
-  if (!name || !photoURL || !height || !position || !location) {
-    alert("You must fill in all of the fields!");
-  } else {
-
-    var newPostElem = createPostElement(name, photoURL, height, position, location);
-    allPostElems.push(newPostElem);
-
-    var postsSection = document.getElementById('posts');
-    postsSection.appendChild(newPostElem);
-
-    /*
-     * If city doesn't already exist in the list of cities by which we can
-     * filter, add it.
-     */
-    if (allPositions.indexOf(position.toLowerCase()) === -1) {
-      allPositions.push(position.toLowerCase());
-      var newPositionOption = createPositionOption(position);
-      var filterPositionSelect = document.getElementById('filter-position');
-      filterPositionSelect.appendChild(newPositionOption);
-    }
-
-    hideAddStarModal();
-
-  }
-
-}
-
-
-/*
  * A function to apply the current filters to a specific post.  Returns true
  * if the post passes the filters and should be displayed and false otherwise.
  */
-function postPassesFilters(postElem, filters) {
+function postPassesFilters(post, filters) {
 
-  if (filters.name) {
-    var postText = postElem.textContent.toLowerCase();
-    var filterText = filters.name.toLowerCase();
-    if (postText.indexOf(filterText) === -1) {
+  if (filters.text) {
+    var postDescription = post.description.toLowerCase();
+    var filterText = filters.text.toLowerCase();
+    if (postDescription.indexOf(filterText) === -1) {
       return false;
     }
   }
 
   if (filters.minHeight) {
-    var postHeight = Number(postElem.getAttribute('data-height'));
     var filterMinHeight = Number(filters.minHeight);
-    if (postHeight < filterMinHeight) {
+    if (Number(post.height) < filterMinHeight) {
       return false;
     }
   }
 
   if (filters.maxHeight) {
-    var postHeight = Number(postElem.getAttribute('data-height'));
     var filterMaxHeight = Number(filters.maxHeight);
-    if (postHeight > filterMaxHeight) {
+    if (Number(post.height) < filterMaxHeight) {
       return false;
     }
   }
 
   if (filters.position) {
-    var postPosition = postElem.getAttribute('data-position').toLowerCase();
-    var filterPosition = filters.position.toLowerCase();
-    if (postPosition !== filterPosition) {
+    if (post.position.toLowerCase() !== filters.position.toLowerCase()) {
       return false;
     }
   }
 
   if (filters.locations && filters.locations.length > 0) {
-    var postLocation = postElem.getAttribute('data-location');
-    if (filters.locations.indexOf(postLocation) === -1) {
+    if (filters.locations.indexOf(post.location) === -1) {
       return false;
     }
   }
@@ -217,7 +244,7 @@ function doFilterSearch() {
    * Grab values of filters from user inputs.
    */
   var filters = {
-    name: document.getElementById('filter-text').value.trim(),
+    text: document.getElementById('filter-text').value.trim(),
     minHeight: document.getElementById('filter-min-height').value,
     maxHeight: document.getElementById('filter-max-height').value,
     position: document.getElementById('filter-position').value.trim(),
@@ -241,11 +268,41 @@ function doFilterSearch() {
    * Loop through the collection of all "post" elements and re-insert ones
    * that meet the current filtering criteria.
    */
-  allPostElems.forEach(function (postElem) {
-    if (postPassesFilters(postElem, filters)) {
-      insertNewPost(postElem.description, postElem.photoURL, postElem.height, postElem.position, popostElemst.location);
+  allPosts.forEach(function (post) {
+    if (postPassesFilters(post, filters)) {
+      insertNewPost(post.description, post.photoURL, post.price, post.city, post.condition);
     }
   });
+
+}
+
+
+/*
+ * This function parses an existing DOM element representing a single post
+ * into an object representing that post and returns that object.  The object
+ * is structured like this:
+ *
+ * {
+ *   description: "...",
+ *   photoURL: "...",
+ *   price: ...,
+ *   city: "...",
+ *   condition: "..."
+ * }
+ */
+function parsePostElem(postElem) {
+
+  var post = {
+    height: postElem.getAttribute('data-height'),
+    position: postElem.getAttribute('data-position'),
+    location: postElem.getAttribute('data-location')
+  };
+
+  var postImageElem = postElem.querySelector('.post-image-container img');
+  post.photoURL = postImageElem.src;
+  post.description = postImageElem.alt;
+
+  return post;
 
 }
 
@@ -260,23 +317,29 @@ window.addEventListener('DOMContentLoaded', function () {
    */
   var postElems = document.getElementsByClassName('post');
   for (var i = 0; i < postElems.length; i++) {
-    allPostElems.push(postElems[i]);
+    allPosts.push(parsePostElem(postElems[i]));
   }
 
   /*
    * Grab all of the city names already in the filter dropdown.
    */
   var filterPositionSelect = document.getElementById('filter-position');
-  var filterPositionOptions = filterPositionSelect.querySelectorAll('option:not([selected])');
-  for (var i = 0; i < filterPositionOptions.length; i++) {
-    allPositions.push(filterPositionOptions[i].value.trim().toLowerCase());
+  if (filterPositionSelect) {
+    var filterPositionOptions = filterPositionSelect.querySelectorAll('option:not([selected])');
+    for (var i = 0; i < filterPositionOptions.length; i++) {
+      allPositions.push(filterPositionOptions[i].value.trim().toLowerCase());
+    }
   }
 
-  var addStarButton = document.getElementById('add-star-button');
-  addStarButton.addEventListener('click', showAddStarModal);
+  var AddStarButton = document.getElementById('add-star-button');
+  if (AddStarButton) {
+    AddStarButton.addEventListener('click', showAddStarModal);
+  }
 
   var modalAcceptButton = document.getElementById('modal-accept');
-  modalAcceptButton.addEventListener('click', handleModalAcceptClick);
+  if (modalAcceptButton) {
+    modalAcceptButton.addEventListener('click', handleModalAcceptClick);
+  }
 
   var modalHideButtons = document.getElementsByClassName('modal-hide-button');
   for (var i = 0; i < modalHideButtons.length; i++) {
@@ -284,6 +347,8 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   var filterSearchButton = document.getElementById('filter-search-button');
-  filterSearchButton.addEventListener('click', doFilterSearch)
+  if (filterSearchButton) {
+    filterSearchButton.addEventListener('click', doFilterSearch)
+  }
 
 });

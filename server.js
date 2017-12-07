@@ -21,6 +21,7 @@ app.get('/', function (req, res) {
   res.status(200).render('homePage', {
     height: postData,
     hideFilter: false,
+    hidePicture: false,
     hideButton: false
   });
   console.log(" == homePage is working");
@@ -74,10 +75,10 @@ app.get('/', function (req, res) {
 
 app.use(express.static('public'));
 
-app.get('*', function (req, res) {
-  res.status(404).render('404');
-  console.log(" == 404 is working");
-});
+// app.get('*', function (req, res) {
+//   res.status(404).render('404');
+//   console.log(" == 404 is working");
+// });
 
 
 app.listen(port, function () {
