@@ -1,7 +1,29 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
+    background-image: url("personbakcground.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
+
+header {
+    background-image: url("curry.jpg");
+    background-repeat: no-repeat;
+    background-size: 1275px 240px;
+    background-position: top right;
+    position: fixed;
+    background-color: black;
+    align-items: center;
+    display: flex;
+    z-index: 10000;
+}
+
+ header a {
+        color: #fff;
+        background-color:black;
+}
+
 
 a {
     text-decoration: none;
@@ -12,26 +34,54 @@ a {
         text-decoration: underline;
     }
 
-header {
-    background-color: #000;
-    align-items: center;
-    display: flex;
-    position: relative;
+
+    
+.player-name {
+    position:absolute;
+    top: 190px;
+    right:770px;
+    height: 50px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 250%;
+
 }
 
-    header a {
-        color: #fff;
-    }
-
-
+.player-photo {
+    position: absolute;
+    left: 100px;
+    top: 350px;
+    display:block;
+    vertical-align: sub;
+    height: 900px;
+    width: 600px;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 3px;
+}
 
 
 ul {
-    list-style-type: square
+    color: ThreeDLightShadow;
+    list-style-type: square;
+    left: 3000px;
+    top: 2000px;
+    font-size: 250%;
+    letter-spacing: 3px;
+    line-height: 60px;
 }
 
-ul {
-    position: relative;
-    left: 30px;
-    top: 20px;
+.player-info {
+    position:absolute;
+    right:100px;
+    top:350px;
+    display: inline-block;
+    vertical-align:sub;
+    height: 900px;
+    width: 600px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #dadada;
+    border-radius: 3px;
 }
