@@ -22,7 +22,7 @@ header {
 
     header a {
         color: #f67811;
-        font-size: 350%;
+        font-size: 100vmin;
         z-index: 1000;
     }
 
@@ -30,7 +30,7 @@ header {
 a {
     text-decoration: none;
     color: #f67811;
-    font-size: 300%;
+    /*font-size: 300%;*/
 }
 
     a:hover {
@@ -39,26 +39,29 @@ a {
 
 
 
-.player-name {
+.player-name{
     position: absolute;
-    top: 250px;
-    right: 350px;
+    top: 260px;
+    right: 5vmin;
+    left: 17vmin;
+    bottom: 0;
+    width: 95%;
     height: 50px;
-    margin: 10px;
+    /*margin: 10px;
     padding: 10px;
-    border-radius: 3px;
-    font-size: 300%;
-    font-family:"Times New Roman",Times,serif; 
+    border-radius: 3px;*/
+    font-size: 16vmin;
+    font-family:"Times New Roman",Times,serif;
     color: #f67811;
 }
 
 .player-photo {
     position: absolute;
-    left: 230px;
-    top: 500px;
+    left: 10px;
+    top: 440px;
     display:block;
     vertical-align: sub;
-    height: 900px;
+    height: 100px;
     width: 600px;
     margin: 10px;
     padding: 10px;
@@ -70,23 +73,23 @@ ul {
     /*color: ThreeDLightShadow;*/
     color: #f67811;
     list-style-type: square;
-    left: 3000px;
+    left: 3500px;
     top: 2000px;
-    font-size: 250%;
+    font-size: 5vmin;
     letter-spacing: 3px;
     line-height: 90px;
 }
 
 .player-info {
     position:absolute;
-    right:230px;
-    top:450px;
+    right:7vmin;
+    top:430px;
     display:inline-block;
     vertical-align:sub;
     height: 900px;
     width: 600px;
     margin: 10px;
     padding: 10px;
-    
+
     border-radius: 3px;
 }
