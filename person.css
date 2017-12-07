@@ -5,29 +5,31 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    z-index: 998;
 }
 
 header {
-    background-image: url("curry.jpg");
+    /*background-image: url("curry.jpg");
     background-repeat: no-repeat;
     background-size: 1275px 240px;
-    background-position: top right;
+    background-position: top right;*/
     position: fixed;
-    background-color: black;
     align-items: center;
     display: flex;
-    z-index: 10000;
+    z-index: 999;
 }
 
- header a {
-        color: #fff;
-        background-color:black;
-}
+    header a {
+        color: #f67811;
+        font-size: 350%;
+        z-index: 1000;
+    }
 
 
 a {
     text-decoration: none;
     color: #f67811;
+    font-size: 300%;
 }
 
     a:hover {
@@ -35,22 +37,23 @@ a {
     }
 
 
-    
+
 .player-name {
-    position:absolute;
-    top: 190px;
-    right:770px;
+    position: absolute;
+    top: 100px;
+    right: 350px;
     height: 50px;
     margin: 10px;
     padding: 10px;
     border-radius: 3px;
-    font-size: 250%;
-
+    font-size: 300%;
+    font-family:"Times New Roman",Times,serif; 
+    color: #f67811;
 }
 
 .player-photo {
     position: absolute;
-    left: 100px;
+    left: 230px;
     top: 350px;
     display:block;
     vertical-align: sub;
@@ -69,19 +72,19 @@ ul {
     top: 2000px;
     font-size: 250%;
     letter-spacing: 3px;
-    line-height: 60px;
+    line-height: 90px;
 }
 
 .player-info {
     position:absolute;
-    right:100px;
-    top:350px;
-    display: inline-block;
+    right:230px;
+    top:300px;
+    display:inline-block;
     vertical-align:sub;
     height: 900px;
     width: 600px;
     margin: 10px;
     padding: 10px;
-    border: 1px solid #dadada;
+    
     border-radius: 3px;
 }
