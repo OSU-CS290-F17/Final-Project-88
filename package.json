@@ -1,0 +1,27 @@
+{
+  "name": "Final Project",
+  "version": "1.0.0",
+  "description": "Handlebars templating",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "handlebars views/partials/newPost.handlebars -f public/newPostTemplate.js",
+    "start": "node server.js",
+    "prestart": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OSU-CS290-F17/Final-Project-88.git"
+  },
+  "author": "Yuanjun Zhang, Chen Huang, Ziyu Xiong, Pu Huang",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/OSU-CS290-F17/Final-Project-88/issues"
+  },
+  "homepage": "https://github.com/OSU-CS290-F17/Final-Project-88#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11"
+  }
+}

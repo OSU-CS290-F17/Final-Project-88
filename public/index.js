@@ -82,64 +82,21 @@ function hideAddStarModal() {
  *   </div>
  * </div>
  */
-function createPostElement(name, photoURL, height, position, location) {
+function insertPostElement(name, photoURL, height, position, location) {
 
-  // Create the containing <div> element.
-  var postDiv = document.createElement('div');
-  postDiv.classList.add('post');
-  postDiv.setAttribute('data-height', height);
-  postDiv.setAttribute('data-position', position);
-  postDiv.setAttribute('data-location', location);
+  var newPostTemplateArgs = {
+    description: description,
+    photoURL: photoURL,
+    height: height,
+    position: position,
+    location: location
+  }
 
-  // Create the inner post-contents <div> and add it to the post <div>.
-  var postContentsDiv = document.createElement('div');
-  postContentsDiv.classList.add('post-contents');
-  postDiv.appendChild(postContentsDiv);
+  var newPostHTML = Handlebars.templates.newPost(newPostTemplateArgs);
+  console.log("== newPostHTML:", newPostHTML);
 
-  /*
-   * Create the post-image-container <div> and its <img> contents and add
-   * them into the post-contents <div>.
-   */
-  var postImageContainerDiv = document.createElement('div');
-  postImageContainerDiv.classList.add('post-image-container');
-  postContentsDiv.appendChild(postImageContainerDiv);
-
-  var postImg = document.createElement('img');
-  postImg.src = photoURL;
-  postImg.alt = name;
-  postImageContainerDiv.appendChild(postImg);
-
-  /*
-   * Create the post-info-container <div> and all of its contents and add
-   * them into the post-contents <div>.
-   */
-  var postInfoContainerDiv = document.createElement('div');
-  postInfoContainerDiv.classList.add('post-info-container');
-  postContentsDiv.appendChild(postInfoContainerDiv);
-
-  var postLink = document.createElement('a');
-  postLink.classList.add('post-title');
-  postLink.href = '#';
-  postLink.textContent = name;
-  postInfoContainerDiv.appendChild(postLink);
-
-  var spaceText1 = document.createTextNode(' ');
-  postInfoContainerDiv.appendChild(spaceText1);
-
-  // var postPriceSpan = document.createElement('span');
-  // postPriceSpan.classList.add('post-price');
-  // postPriceSpan.textContent = '$' + price;
-  // postInfoContainerDiv.appendChild(postPriceSpan);
-  //
-  // var spaceText2 = document.createTextNode(' ');
-  // postInfoContainerDiv.appendChild(spaceText2);
-
-  var postPositionSpan = document.createElement('span');
-  postPositionSpan.classList.add('post-position');
-  postPositionSpan.textContent = '(' + position + ')';
-  postInfoContainerDiv.appendChild(postPositionSpan);
-
-  return postDiv;
+  var postsSection = document.getElementById('posts');
+  postsSection.insertAdjacentHTML("beforeEnd", newPostHTML);
 
 }
 
@@ -286,7 +243,7 @@ function doFilterSearch() {
    */
   allPostElems.forEach(function (postElem) {
     if (postPassesFilters(postElem, filters)) {
-      postContainer.appendChild(postElem);
+      insertNewPost(postElem.description, postElem.photoURL, postElem.height, postElem.position, popostElemst.location);
     }
   });
 
