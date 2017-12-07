@@ -1,3 +1,31 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #f67811;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+header {
+    background-color: #000;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+    header a {
+        color: #fff;
+    }
+
+
+
+
 ul {
     list-style-type: square
 }
